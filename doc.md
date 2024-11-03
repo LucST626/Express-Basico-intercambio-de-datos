@@ -67,7 +67,7 @@ En el front tenemos:
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ nombre: 'Camacho' })
+    body: JSON.stringify({ nombre: 'Lucas' })
 })
 .then(response => response.text())  
         .then(data => {
