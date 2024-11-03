@@ -7,7 +7,7 @@ const parrafo = document.getElementById("respuesta")
     headers: {
         'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ nombre: 'Diego' })
+    body: JSON.stringify({ nombre: 'Lucas' })
 })
 .then(response => response.text())
 .then(data => parrafo.textContent = data);

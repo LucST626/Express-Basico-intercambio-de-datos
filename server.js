@@ -7,6 +7,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //repasar
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.get('/query_parameters', (req, res) => {
     const clave = req.query.clave;
@@ -14,19 +15,24 @@ app.get('/query_parameters', (req, res) => {
     res.send(`Hola, ${clave}!`);
 });
 
-app.post('/post_request', (req, res) => {
+app.post('/enviar', (req, res) => {
     const mensaje = req.body.clave;
     const nombre = req.body.nombre;
+    const number = req.body.numero;
     console.log(mensaje, nombre)
-    res.send(`Mensaje recibido: ${mensaje}`);
+    res.send(`Mensaje recibido: ${mensaje} ${nombre} ${number}`);
 });
 
-app.use(express.json());
 
 app.post('/json', (req, res) => {
     const nombre = req.body.nombre
     res.send(`Hola, ${nombre}!`);
 });
+
+app.get('/usuario/:id', (req, res) => {
+    const id = req.params.id;
+    res.send(`Usuario ID: ${id}`);
+})
 
 app.listen(3000, () => {
     console.log('Servidor escuchando en el puerto 3000');
